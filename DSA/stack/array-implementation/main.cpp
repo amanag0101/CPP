@@ -32,25 +32,51 @@ int main()
             case 0:
                 exit(0);
             case 1:
-                int element;
-                cout << "Enter value: ";
-                cin >> element;
-                stack.push(element);
+                try
+                {
+                    int element;
+                    cout << "Enter value: ";
+                    cin >> element;
+                    stack.push(element);
+                }
+                catch(const std::exception& e)
+                {
+                    std::cerr << e.what() << '\n';
+                }
                 break;
             case 2:
-                cout << "Popped element: " << stack.pop() << endl;
+                try
+                {
+                    cout << "Popped element: " << stack.pop() << endl;
+                }
+                catch(const std::exception& e)
+                {
+                    std::cerr << e.what() << '\n';
+                }
+                
                 break;
             case 3:
-                cout << "Top element: " << stack.peek() << endl;
+                try
+                {
+                    cout << "Top element: " << stack.peek() << endl;
+                }
+                catch(const std::exception& e)
+                {
+                    std::cerr << e.what() << '\n';
+                }
                 break;
             case 4:
                 cout << "Size: " << stack.getSize() << endl;
                 break;
             case 5:
-                cout << "isEmpty: " << stack.isEmpty() << endl;
+                stack.isEmpty()
+                    ? cout << "Yes!\n"
+                    : cout << "No!\n";
                 break;
             case 6:
-                cout << "isFull: " << stack.isFull() << endl;
+                stack.isFull()
+                    ? cout << "Yes!\n"
+                    : cout << "No!\n";
                 break;
             default:
                 cout << "Invalid option! \n";
